@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.NorthKingSys.jbf.cn.mapper.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.NorthKingSys.jbf.cn.domain.UserInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="createtime" jdbcType="DATE" property="createtime" />
+    <result column="userRole" jdbcType="VARCHAR" property="userrole" />
+    <result column="backup" jdbcType="VARCHAR" property="backup" />
+    <result column="SIGN_STATUS" jdbcType="VARCHAR" property="signStatus" />
+    <result column="USER_STATUS" jdbcType="VARCHAR" property="userStatus" />
+    <result column="LAST_SIGN_TIME" jdbcType="VARCHAR" property="lastSignTime" />
+    <result column="LAST_EXIT_TIME" jdbcType="VARCHAR" property="lastExitTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userId, username, createtime, userRole, backup, SIGN_STATUS, USER_STATUS, LAST_SIGN_TIME, 
+    LAST_EXIT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from JBF_USER
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from JBF-USER
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
+    insert into JBF_USER (id, userId, username,
+      createtime, userRole, backup, 
+      SIGN_STATUS, USER_STATUS, LAST_SIGN_TIME, 
+      LAST_EXIT_TIME)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=DATE}, #{userrole,jdbcType=VARCHAR}, #{backup,jdbcType=VARCHAR}, 
+      #{signStatus,jdbcType=VARCHAR}, #{userStatus,jdbcType=VARCHAR}, #{lastSignTime,jdbcType=VARCHAR}, 
+      #{lastExitTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertDemo" keyColumn="id" keyProperty="id" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo" useGeneratedKeys="true">
+     insert into JBF_USER (id, userId, username,
+      createtime, userRole)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+      #{createtime,jdbcType=DATE}, #{userrole,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
+    insert into JBF_USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="userrole != null">
+        userRole,
+      </if>
+      <if test="backup != null">
+        backup,
+      </if>
+      <if test="signStatus != null">
+        SIGN_STATUS,
+      </if>
+      <if test="userStatus != null">
+        USER_STATUS,
+      </if>
+      <if test="lastSignTime != null">
+        LAST_SIGN_TIME,
+      </if>
+      <if test="lastExitTime != null">
+        LAST_EXIT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="userrole != null">
+        #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="backup != null">
+        #{backup,jdbcType=VARCHAR},
+      </if>
+      <if test="signStatus != null">
+        #{signStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lastSignTime != null">
+        #{lastSignTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastExitTime != null">
+        #{lastExitTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
+    update JBF-USER
+    <set>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="userrole != null">
+        userRole = #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="backup != null">
+        backup = #{backup,jdbcType=VARCHAR},
+      </if>
+      <if test="signStatus != null">
+        SIGN_STATUS = #{signStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        USER_STATUS = #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lastSignTime != null">
+        LAST_SIGN_TIME = #{lastSignTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastExitTime != null">
+        LAST_EXIT_TIME = #{lastExitTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
+    update JBF-USER
+    set userId = #{userid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=DATE},
+      userRole = #{userrole,jdbcType=VARCHAR},
+      backup = #{backup,jdbcType=VARCHAR},
+      SIGN_STATUS = #{signStatus,jdbcType=VARCHAR},
+      USER_STATUS = #{userStatus,jdbcType=VARCHAR},
+      LAST_SIGN_TIME = #{lastSignTime,jdbcType=VARCHAR},
+      LAST_EXIT_TIME = #{lastExitTime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
