@@ -1,6 +1,11 @@
 package com.NorthKingSys.jbf.cn.biz;
 
-public class Result<T> {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
+
+public class Result<T> implements Serializable {
+    private static final long serialVersionUID = 1L;
     /** 错误码. */
     private Integer code;
 
