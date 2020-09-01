@@ -1,68 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.NorthKingSys.jbf.cn.mapper.UserInfoMapper">
+
   <resultMap id="BaseResultMap" type="com.NorthKingSys.jbf.cn.domain.UserInfo">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="userId" jdbcType="VARCHAR" property="userid" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="createtime" jdbcType="DATE" property="createtime" />
-    <result column="userRole" jdbcType="VARCHAR" property="userrole" />
-    <result column="backup" jdbcType="VARCHAR" property="backup" />
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="USER_ROLE" jdbcType="VARCHAR" property="userRole" />
+    <result column="BACK_UP" jdbcType="VARCHAR" property="backUp" />
     <result column="SIGN_STATUS" jdbcType="VARCHAR" property="signStatus" />
     <result column="USER_STATUS" jdbcType="VARCHAR" property="userStatus" />
     <result column="LAST_SIGN_TIME" jdbcType="VARCHAR" property="lastSignTime" />
     <result column="LAST_EXIT_TIME" jdbcType="VARCHAR" property="lastExitTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, userId, username, createtime, userRole, backup, SIGN_STATUS, USER_STATUS, LAST_SIGN_TIME, 
-    LAST_EXIT_TIME
+    ID, USER_ID, USER_NAME, CREATE_TIME, USER_ROLE, BACK_UP, SIGN_STATUS, USER_STATUS,
+    LAST_SIGN_TIME, LAST_EXIT_TIME
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from JBF_USER
-    where id = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from JBF-USER
-    where id = #{id,jdbcType=INTEGER}
+    delete from JBF_USER
+    where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
-    insert into JBF_USER (id, userId, username,
-      createtime, userRole, backup, 
-      SIGN_STATUS, USER_STATUS, LAST_SIGN_TIME, 
-      LAST_EXIT_TIME)
-    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=DATE}, #{userrole,jdbcType=VARCHAR}, #{backup,jdbcType=VARCHAR}, 
-      #{signStatus,jdbcType=VARCHAR}, #{userStatus,jdbcType=VARCHAR}, #{lastSignTime,jdbcType=VARCHAR}, 
-      #{lastExitTime,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertDemo" keyColumn="id" keyProperty="id" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo" useGeneratedKeys="true">
-     insert into JBF_USER (id, userId, username,
-      createtime, userRole)
+  <insert id="insertDemo" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+     insert into JBF_USER (id, USER_ID, USER_NAME,
+      CREATE_TIME, USER_ROLE)
     values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
       #{createtime,jdbcType=DATE}, #{userrole,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertUsrPwd" useGeneratedKeys="true" keyColumn="id">
+      insert into JBF_USER (id, USER_ID, USER_NAME,
+      CREATE_TIME, USER_ROLE)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+      #{createtime,jdbcType=DATE}, #{userrole,jdbcType=VARCHAR})
+  </insert>
+<!--  <insert id="insertDemo2" useGeneratedKeys="true" >-->
+<!--    -->
+<!--  </insert>-->
+  <select id="selectByUsername" resultType="map">
+      select a.id,a.user_name,a.user_Role,a.create_time, a.LAST_SIGN_TIME,
+      b.effect_date from JBF_USER a ,JBF_USER_PWD b
+       <where>
+         a.user_id=b.user_id
+        <if test="username!=null and username!=''">
+          and  a.user_name= #{username}
+        </if>
+      </where>
+  </select>
+  <insert id="insert" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
+    insert into JBF_USER (ID, USER_ID, USER_NAME,
+      CREATE_TIME, USER_ROLE, BACK_UP,
+      SIGN_STATUS, USER_STATUS, LAST_SIGN_TIME,
+      LAST_EXIT_TIME)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
+      #{createTime,jdbcType=DATE}, #{userRole,jdbcType=VARCHAR}, #{backUp,jdbcType=VARCHAR},
+      #{signStatus,jdbcType=VARCHAR}, #{userStatus,jdbcType=VARCHAR}, #{lastSignTime,jdbcType=VARCHAR},
+      #{lastExitTime,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
     insert into JBF_USER
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        id,
+        ID,
       </if>
-      <if test="userid != null">
-        userId,
+      <if test="userId != null">
+        USER_ID,
       </if>
-      <if test="username != null">
-        username,
+      <if test="userName != null">
+        USER_NAME,
       </if>
-      <if test="createtime != null">
-        createtime,
+      <if test="createTime != null">
+        CREATE_TIME,
       </if>
-      <if test="userrole != null">
-        userRole,
+      <if test="userRole != null">
+        USER_ROLE,
       </if>
-      <if test="backup != null">
-        backup,
+      <if test="backUp != null">
+        BACK_UP,
       </if>
       <if test="signStatus != null">
         SIGN_STATUS,
@@ -81,20 +101,20 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=DATE},
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
       </if>
-      <if test="userrole != null">
-        #{userrole,jdbcType=VARCHAR},
+      <if test="userRole != null">
+        #{userRole,jdbcType=VARCHAR},
       </if>
-      <if test="backup != null">
-        #{backup,jdbcType=VARCHAR},
+      <if test="backUp != null">
+        #{backUp,jdbcType=VARCHAR},
       </if>
       <if test="signStatus != null">
         #{signStatus,jdbcType=VARCHAR},
@@ -111,22 +131,22 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
-    update JBF-USER
+    update JBF_USER
     <set>
-      <if test="userid != null">
-        userId = #{userid,jdbcType=VARCHAR},
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null">
-        createtime = #{createtime,jdbcType=DATE},
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=DATE},
       </if>
-      <if test="userrole != null">
-        userRole = #{userrole,jdbcType=VARCHAR},
+      <if test="userRole != null">
+        USER_ROLE = #{userRole,jdbcType=VARCHAR},
       </if>
-      <if test="backup != null">
-        backup = #{backup,jdbcType=VARCHAR},
+      <if test="backUp != null">
+        BACK_UP = #{backUp,jdbcType=VARCHAR},
       </if>
       <if test="signStatus != null">
         SIGN_STATUS = #{signStatus,jdbcType=VARCHAR},
@@ -141,19 +161,19 @@
         LAST_EXIT_TIME = #{lastExitTime,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.NorthKingSys.jbf.cn.domain.UserInfo">
-    update JBF-USER
-    set userId = #{userid,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR},
-      createtime = #{createtime,jdbcType=DATE},
-      userRole = #{userrole,jdbcType=VARCHAR},
-      backup = #{backup,jdbcType=VARCHAR},
+    update JBF_USER
+    set USER_ID = #{userId,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=DATE},
+      USER_ROLE = #{userRole,jdbcType=VARCHAR},
+      BACK_UP = #{backUp,jdbcType=VARCHAR},
       SIGN_STATUS = #{signStatus,jdbcType=VARCHAR},
       USER_STATUS = #{userStatus,jdbcType=VARCHAR},
       LAST_SIGN_TIME = #{lastSignTime,jdbcType=VARCHAR},
       LAST_EXIT_TIME = #{lastExitTime,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

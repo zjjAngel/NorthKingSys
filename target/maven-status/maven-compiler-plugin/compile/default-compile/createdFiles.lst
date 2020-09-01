@@ -1,2 +1,5 @@
+com\NorthKingSys\jbf\cn\domain\RoleInfo.class
 com\NorthKingSys\jbf\cn\NorthKingSysApplication.class
 com\NorthKingSys\jbf\cn\domain\UserInfo.class
+com\NorthKingSys\jbf\cn\domain\RoleInfo$RoleInfoBuilder.class
+com\NorthKingSys\jbf\cn\config\SwaggerConf.class
