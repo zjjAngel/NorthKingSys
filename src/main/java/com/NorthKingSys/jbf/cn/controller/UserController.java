@@ -27,7 +27,7 @@ public class UserController {
     UserService userService;
     @Autowired
     UserInfoMapper userInfoMapper;
-    @GetMapping("/demo")
+    @PostMapping("/demo")
    public Result<Object> getTest(){
        return ResultUtil.success(userInfoMapper.selectByPrimaryKey(1));
    }

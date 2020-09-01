@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.NorthKingSys.jbf.cn.mapper.SysUsrMngerMapper">
+    <select id="selectUsr" resultType="map">
+         select t.user_id,t.user_name from JBF_USER t
+         <where>
+            t.user_name=#{username}
+         </where>
+    </select>
+    <insert id="insertUser" useGeneratedKeys="true" keyColumn="id">
+          insert into JBF_USER (
+            user_id,
+            user_name,
+            user_role,
+            <if test="backup!=null and backup!=''">
+                back_up,
+            </if>
+           create_time
+          )
+          values (
+            #{userId},
+            #{username},
+            #{transRole},
+            <if test="backup!=null and backup!=''">
+                #{backup},
+            </if>
+            timestamp
+          )
+    </insert>
+
+    <insert id="insertPassWord" >
+           insert into JBF_USER_PWD(
+                user_id,
+                user_name,
+                password,
+                effect_date
+            ) values (
+                #{userId},
+                #{username},
+                #{password},
+                '72'
+           )
+    </insert>
+</mapper>
