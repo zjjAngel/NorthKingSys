@@ -1,6 +1,12 @@
 package com.NorthKingSys.jbf.cn.domain;
 
-public class UserBack {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
+
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class UserBack implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String username;
 
     private String password;
