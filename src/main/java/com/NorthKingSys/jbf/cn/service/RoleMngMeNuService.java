@@ -2,19 +2,19 @@ package com.NorthKingSys.jbf.cn.service;
 
 import com.NorthKingSys.jbf.cn.biz.BusinessException;
 import com.NorthKingSys.jbf.cn.biz.MenuInfo;
+import com.NorthKingSys.jbf.cn.biz.UsrPwdInfo;
 import com.NorthKingSys.jbf.cn.domain.RoleInfo;
 import com.NorthKingSys.jbf.cn.mapper.MenuMngerMapper;
 import com.NorthKingSys.jbf.cn.mapper.RoleMngMeNuMapper;
+import com.NorthKingSys.jbf.cn.mapper.SysUsrMngerMapper;
+import com.NorthKingSys.jbf.cn.mapper.UserInfoMapper;
 import com.NorthKingSys.jbf.cn.util.SnowflakeIdWorkerUntil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -23,7 +23,8 @@ public class RoleMngMeNuService {
     @Autowired
    private RoleMngMeNuMapper roleMngMeNuMapper;
     @Autowired
-    private MenuMngerMapper menuMngerMapper;
+   private SysUsrMngerMapper sysUsrMngerMapper;
+
    public Object insertRoleMngMeNuInfo(Map re){
        String role_id = SnowflakeIdWorkerUntil.roleIdNextId();
        String role_name = String.valueOf(re.get("ROLE_NAME"));
@@ -52,6 +53,19 @@ public class RoleMngMeNuService {
        List<RoleInfo> roleInfos = roleMngMeNuMapper.queryRoleMngMenuInfo(roleName);
        PageInfo<RoleInfo> pageInfo= new PageInfo<>(roleInfos);
        return pageInfo;
+   }
+
+   public Object deleteRoleMenuUsr(String role_id){
+       List<UsrPwdInfo> roleInfos=  sysUsrMngerMapper.queryUsrInfo(null,role_id);//查询出来该角色下挂了多少用户
+       List<String> collect=new ArrayList<>();
+       if(null!=roleInfos&&roleInfos.size()>0){
+            collect = roleInfos.stream().map(UsrPwdInfo::getUser_id).collect(Collectors.toList());
+       }
+       if(collect.size()>0) {
+           sysUsrMngerMapper.deleteUsr(collect);// 删除该角色下挂的用户
+       }
+        int num= roleMngMeNuMapper.deletebyRoleId(role_id);//删除角色表
+        return num;
    }
 
     /**

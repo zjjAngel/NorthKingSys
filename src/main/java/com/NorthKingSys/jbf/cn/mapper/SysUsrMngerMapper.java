@@ -23,4 +23,5 @@ public interface SysUsrMngerMapper {
     List<UsrPwdInfo> queryUsrInfo(@Param("userId")String userId, @Param("roleId")String roleId);
     List<UsrPwdInfo> querySelect();
     List<UsrPwdInfo> querySelectUsr();
+    int deleteUsr(@Param("list")List<String> userId);
 }

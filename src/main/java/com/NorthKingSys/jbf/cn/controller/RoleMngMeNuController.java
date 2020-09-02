@@ -49,14 +49,14 @@ public class RoleMngMeNuController {
     }
 
     /**
-     *
+     *  删除角色
      * @param role_id
      * @return
      */
-//    @GetMapping("/deleteRoleById")
-//    public Result<?> deleteMenu(@RequestParam("role_Id")String role_id){
-//
-//    }
+    @GetMapping("/deleteRoleById")
+    public Result<?> deleteRoleMenu(@RequestParam("role_Id")String role_id){
+        return ResultUtil.success(roleMngMeNuService.deleteRoleMenuUsr(role_id));
+    }
 
 //    /**
 //     * 角色编辑查询接口

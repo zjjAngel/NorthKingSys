@@ -76,6 +76,13 @@
             user_id=#{userId}
         </where>
     </delete>
+    <delete id="deleteUsr">
+        delete from JBF_USER t
+         where t.USER_ROLE in
+         <foreach collection="list" item="item" separator="," open="(" close=")">
+                #{item}
+        </foreach>
+    </delete>
     <select id="queryUsrInfo" resultType="com.NorthKingSys.jbf.cn.biz.UsrPwdInfo">
         select t.user_id,t.user_name,t.create_time,t.user_role,
         t.role_name,

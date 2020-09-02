@@ -31,6 +31,12 @@
             role_id=#{role_id}
         </where>
     </update>
+    <delete id="deletebyRoleId">
+        delete from JBF_ROLE
+        <where>
+            role_id=#{role_id}
+        </where>
+    </delete>
     <select id="selectFein_ids" resultType="string">
 
     </select>
@@ -59,6 +65,7 @@
                 <if test="roleName!=null">
                     r.role_name=#{roleName}
                 </if>
+
             </where>
     </select>
     <select id="queryRoleEditMenuInfo" resultType="com.NorthKingSys.jbf.cn.domain.RoleInfo">
@@ -70,7 +77,10 @@
             </if>
         </where>
     </select>
-<!--    <select id="queryAllMenu" resultType="com.NorthKingSys.jbf.cn.biz.MenuInfo">-->
+<!--    <select id="queryUsrByRoleId" resultType="com.NorthKingSys.jbf.cn.domain.RoleInfo">-->
+<!--        -->
+<!--    </select>-->
+    <!--    <select id="queryAllMenu" resultType="com.NorthKingSys.jbf.cn.biz.MenuInfo">-->
 
 <!--    </select>-->
 </mapper>
