@@ -16,6 +16,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
 //        ir.excludePathPatterns("/login");
 
         // 以上三句代码可以使用下面的代替
-         registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/*").excludePathPatterns("/").excludePathPatterns("/login").excludePathPatterns("/tologin").excludePathPatterns("/registry").excludePathPatterns("/goto").excludePathPatterns("*.html");
+         registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/*").excludePathPatterns("/login").excludePathPatterns("/tologin").excludePathPatterns("/registry").excludePathPatterns("/goto").excludePathPatterns("*.html");
     }
 }

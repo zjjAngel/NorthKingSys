@@ -1,0 +1,160 @@
+http://192.168.0.115:8081/api/NothKingSystem/tologin
+post
+req
+{"username": "admin","password":"123456"}
+
+
+
+UserBack{username='admin', password='123456'}
+
+request.getSession().getAttribute("user")
+
+系统管理 
+   用户管理
+   新增用户
+http://192.168.0.115:8081/api/NothKingSystem/SysUsrMnger/insertUsrInfo
+Post
+{
+"username":"zhangyou", 用户名 必输
+"backup":"ceshi",    可以为空字符串 但不允许为null
+"transRole":"1",     必输 若用户没选择 默认 角色 为角色id
+
+"password":"123456"   修改密码 必输
+}
+
+{"code":0,"msg":"成功","data":1}
+
+系统管理 
+   用户管理
+   修改用户
+   
+   http://192.168.0.115:8081/api/NothKingSystem/SysUsrMnger/updateUsrInfo?username=admin&password=123&userId=JBF_842457600&backup=123ceshi&transRole=2
+ put 
+ 
+ {"code":0,"msg":"成功","data":1}  2A9117CCAEB2D9C1A2D1F8FD6009A6D4
+ 系统管理 
+   用户管理
+   删除用户
+  http://192.168.0.115:8081/api/NothKingSystem/SysUsrMnger/deleteUsrInfo?userId=JBF_842457600 (非软删除、真正删除) (userId 必输)
+  delete
+  {"code":0,"msg":"成功","data":1} 
+  
+  
+ 系统管理 
+   用户管理
+    查询
+   http://192.168.0.115:8081/api/NothKingSystem/SysUsrMnger/queryUsrInfo?pageSize=10&pageNum=1&userId=123&roleId=123
+   get
+   userId / roleId 非必输
+ {
+    "code":0,
+    "msg":"成功",
+    "data":{
+        "total":1,
+        "list":[
+            [
+                {
+                    "user_id":"JBF-001",
+                    "user_name":"admin1",
+                    "create_time":null,
+                    "user_role":"1",
+                    "role_name":null,
+                    "password":null
+                }
+            ]
+        ],
+        "pageNum":1,
+        "pageSize":1,
+        "size":1,
+        "startRow":0,
+        "endRow":0,
+        "pages":1,
+        "prePage":0,
+        "nextPage":0,
+        "isFirstPage":true,
+        "isLastPage":true,
+        "hasPreviousPage":false,
+        "hasNextPage":false,
+        "navigatePages":8,
+        "navigatepageNums":[
+            1
+        ],
+        "navigateFirstPage":1,
+        "navigateLastPage":1
+    }
+}
+}
+
+角色下拉
+http://192.168.0.115:8081/api/NothKingSystem/SysUsrMnger/querySelectRole
+get
+{
+    "code":0,
+    "msg":"成功",
+    "data":[
+        {
+            "user_id":null,
+            "user_name":null,
+            "create_time":null,
+            "user_role":null,
+            "role_name":"系统管理员",
+            "password":null,
+            "role_id":"1"   //role_id 就是user_id ?
+        },
+        {
+            "user_id":null,
+            "user_name":null,
+            "create_time":null,
+            "user_role":null,
+            "role_name":"需求管理员",
+            "password":null,
+            "role_id":"2"
+        },
+        {
+            "user_id":null,
+            "user_name":null,
+            "create_time":null,
+            "user_role":null,
+            "role_name":"业务管理员",
+            "password":null,
+            "role_id":"3"
+        }
+    ]
+}
+ 
+ 用户下拉
+ http://192.168.0.115:8081/api/NothKingSystem/SysUsrMnger/querySelectUsr
+ get
+ {
+    "code":0,
+    "msg":"成功",
+    "data":[
+        {
+            "user_id":"JBF-001",
+            "user_name":"admin",
+            "create_time":null,
+            "user_role":null,
+            "role_name":null,
+            "password":null,
+            "role_id":null
+        },
+        {
+            "user_id":"JBF-001",
+            "user_name":"admin1",
+            "create_time":null,
+            "user_role":null,
+            "role_name":null,
+            "password":null,
+            "role_id":null
+        },
+        {
+            "user_id":"JBF_513816576",
+            "user_name":"zhangyou",
+            "create_time":null,
+            "user_role":null,
+            "role_name":null,
+            "password":null,
+            "role_id":null
+        }
+    ]
+}

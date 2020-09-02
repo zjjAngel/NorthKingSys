@@ -1,5 +1,7 @@
 package com.NorthKingSys.jbf.cn.util;
 
+import org.springframework.stereotype.Component;
+
 public class SnowflakeIdWorker {
 
     /** 开始时间截 (2015-01-01) */

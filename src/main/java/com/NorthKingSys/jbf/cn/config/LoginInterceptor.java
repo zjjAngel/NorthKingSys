@@ -21,20 +21,25 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (request.getSession().getAttribute("user") == null) {
         return     loginOrnot(request,response,handler);
         }else{
-            //判断用户是否过期
-            Object usr= request.getSession().getAttribute("user");
-           if (usr instanceof UserBack){
-               UserBack userBack= (UserBack) usr;
-              int t= userController.selectUserPerio(userBack.getUsername());
-              if (t==-1){ // 用户过期session失效
-                  request.getSession().setAttribute("user",null);
-                return   loginOrnot(request,response,handler);
-              }
-           }else {
-              throw new BusinessException(usr,"非平台用户");
-           }
+            //赋值超级用户
+
+            return true;
+//            //判断用户是否过期
+//            Object usr= request.getSession().getAttribute("user");
+//           if (usr instanceof UserBack){
+//               UserBack userBack= (UserBack) usr;
+//              int t= userController.selectUserPerio(userBack.getUsername());
+//              if (t==-1){ // 用户过期session失效
+//                  request.getSession().setAttribute("user",null);
+//                return   loginOrnot(request,response,handler);
+//              }else {
+//                  return true;
+//              }
+//           }else {
+//              throw new BusinessException(usr,"非平台用户");
+//           }
         }
-        return true;
+
     }
 
    private boolean loginOrnot(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {

@@ -1,5 +1,7 @@
 server:
   port: 8081
+#  servlet:
+#    context-path: /api/NothKingSystem
 spring:
   thymeleaf:
     cache: false
@@ -7,6 +9,14 @@ spring:
     url: jdbc:mysql://192.168.42.143:3307/jbf?characterEncoding=utf8&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: 123456
+  application:
+    name: NothKingSystem
+#pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+
 #
 #    druid:
 #      db-type: com.alibaba.druid.pool.DruidDataSource
