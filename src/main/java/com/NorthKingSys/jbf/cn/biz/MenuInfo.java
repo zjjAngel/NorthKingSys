@@ -2,6 +2,9 @@ package com.NorthKingSys.jbf.cn.biz;
 
 import lombok.Data;
 
+import java.util.List;
+import java.util.Map;
+
 @Data
 public class MenuInfo {
     private Integer id;
@@ -14,4 +17,7 @@ public class MenuInfo {
     private String  back_up;
     private String  status;
     private String checked;//是否被选中 0 选中 1未选中
+    private String menu_ids;
+    private Map menuIdNameRel;
+    private List<Map>  menuIdNameRelList;
 }

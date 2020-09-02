@@ -4,8 +4,9 @@ import lombok.Builder;
 
 import java.util.Date;
 
-@Builder
+
 public class RoleInfo {
+
     private Integer id;
     private String ROLE_ID;
     private String ROLE_NAME;
@@ -13,6 +14,17 @@ public class RoleInfo {
     private String BACK_UP;
 
     private String FEIGN_IDS;
+
+    public RoleInfo() {
+    }
+
+    public RoleInfo(Integer id, String ROLE_ID, String ROLE_NAME, String BACK_UP, String FEIGN_IDS) {
+        this.id = id;
+        this.ROLE_ID = ROLE_ID;
+        this.ROLE_NAME = ROLE_NAME;
+        this.BACK_UP = BACK_UP;
+        this.FEIGN_IDS = FEIGN_IDS;
+    }
 
     public Integer getId() {
         return id;

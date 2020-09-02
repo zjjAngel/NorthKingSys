@@ -80,4 +80,13 @@
          select distinct m.MENU_LEVEL  from JBF_MENU m
             order by m.MENU_LEVEL asc
     </select>
+    <select id="selectPerLevelMenus" resultType="com.NorthKingSys.jbf.cn.biz.MenuInfo">
+        select t.MENU_LEVEL, GROUP_CONCAT(t.MENU_ID SEPARATOR ',') MENU_IDs from JBF_MENU t GROUP BY MENU_LEVEL
+    </select>
+    <select id="selectMenusName" resultType="java.lang.String">
+        select t.MENU_NAME from JBF_MENU t
+        <where>
+            MENU_ID=#{MENU_ID}
+        </where>
+    </select>
 </mapper>

@@ -10,7 +10,7 @@ public interface RoleMngMeNuMapper {
   int  insertRoleMenu(@Param("role_id")String role_id,@Param("role_name") String role_name,
                       @Param("back_up")String back_up,@Param("feign_ids") String feign_ids);
 
-    List<String> selectFein_ids(String role_id);
+    List<RoleInfo> selectFein_ids(@Param("role_id")String role_Id);
 
     List<MenuInfo> selectCurrentLevel(@Param("level")String level);
 

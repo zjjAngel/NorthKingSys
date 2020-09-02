@@ -24,6 +24,8 @@ public class RoleMngMeNuService {
    private RoleMngMeNuMapper roleMngMeNuMapper;
     @Autowired
    private SysUsrMngerMapper sysUsrMngerMapper;
+    @Autowired
+    private MenuMngerMapper menuMngerMapper;
 
    public Object insertRoleMngMeNuInfo(Map re){
        String role_id = SnowflakeIdWorkerUntil.roleIdNextId();
@@ -101,9 +103,53 @@ public class RoleMngMeNuService {
 //   }
 
    public Object queryMenuByRoleId(String role_Id){
-       List<String> menuInfos= roleMngMeNuMapper.selectFein_ids(role_Id);//查询出所有菜单的id
-       List<String> sortMnInfos= menuInfos.stream().sorted().collect(Collectors.toList());
-       return sortMnInfos;
+       // 按等级查询出每一等级所有的菜单
+       List<MenuInfo> menuInfosPer = menuMngerMapper.selectPerLevelMenus();
+       List<RoleInfo> menuInfos= roleMngMeNuMapper.selectFein_ids(role_Id);//查询出该角色拥有的所有菜单的menu_id
+       //查出所有拥有权限的菜单
+       List<String> sortMnInfos=Arrays.asList(menuInfos.get(0).getFEIGN_IDS().split(","));
+       List<MenuInfo>  resultMenu= new ArrayList<>();//存放有权限的菜单
+       for (int i = 0; i < menuInfosPer.size(); i++) {
+
+          StringBuffer stringBuffer= new StringBuffer();
+           int finalI = i;
+           sortMnInfos.forEach(mnInfo->{
+               if (menuInfosPer.get(finalI).getMenu_ids().contains(mnInfo)){
+                   stringBuffer.append(mnInfo).append(",");
+
+               }
+           });
+           menuInfosPer.get(finalI).setMenu_ids(String.valueOf(stringBuffer));
+
+       } //得到清洗后的数据（去掉没有权限的）
+
+       // 翻译出List<menuIdNameRel>
+       for (int i = 0; i < menuInfosPer.size(); i++) {
+           //每一个级别的menuId
+           List<String> strings = Arrays.asList(menuInfosPer.get(i).getMenu_ids().split(","));
+           List<Map> explain= new ArrayList<>();
+           strings.stream().forEach(e->{
+               Map<String, String> resut = new HashMap<>();
+               resut.put(e,menuMngerMapper.selectMenusName(e));
+               explain.add(resut);
+           });
+           menuInfosPer.get(i).setMenuIdNameRelList(explain);
+       }
+       return menuInfosPer;
+   }
+
+    /**
+     * 翻译PerMenuIdsName
+     * @param menuInfosPer
+     * @return
+     */
+   private Object queryMenuByRoleIdNames(List<MenuInfo> menuInfosPer){
+       menuInfosPer.stream().forEach(e->{
+           Map relation=new HashMap();
+           relation.put(e.getMenu_id(),e.getMenu_name());
+           e.setMenuIdNameRel(relation);
+       });
+       return menuInfosPer;
    }
 
    public Object queryMenuByCurrentLevel(String level){

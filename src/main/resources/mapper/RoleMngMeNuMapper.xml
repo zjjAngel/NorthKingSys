@@ -37,8 +37,11 @@
             role_id=#{role_id}
         </where>
     </delete>
-    <select id="selectFein_ids" resultType="string">
-
+    <select id="selectFein_ids" resultType="com.NorthKingSys.jbf.cn.domain.RoleInfo">
+       select r.feign_ids  from JBF_ROLE r
+        <where>
+            r.role_id=#{role_id}
+        </where>
     </select>
     <select id="selectCurrentLevel" resultType="com.NorthKingSys.jbf.cn.biz.MenuInfo">
             select t.MENU_ID,t.MENU_NAME,t.MENU_LEVEL,t.STATUS from JBF_MENU t
