@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93580ca5-7a3d-4250-8afe-c889e6c8881a" name="Default Changelist" comment="" />
+    <list default="true" id="93580ca5-7a3d-4250-8afe-c889e6c8881a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/NorthKingSys/jbf/cn/controller/RoleMngMeNuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/NorthKingSys/jbf/cn/controller/RoleMngMeNuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/NorthKingSys/jbf/cn/cust/controller/CustInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/NorthKingSys/jbf/cn/cust/controller/CustInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/NorthKingSys/jbf/cn/mapper/RoleMngMeNuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/NorthKingSys/jbf/cn/mapper/RoleMngMeNuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/NorthKingSys/jbf/cn/service/RoleMngMeNuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/NorthKingSys/jbf/cn/service/RoleMngMeNuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/NorthKingSys-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/NorthKingSys-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/NorthKingSys.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/NorthKingSysApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/biz/BusinessException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/biz/JBFErrorCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/biz/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/config/InterceptorConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/config/LoginInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/config/ThreadPoolFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/domain/UserBack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/domain/UserInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/mapper/UserInfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/NorthKingSys/jbf/cn/util/ResultUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/login-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-generator-core-1.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-generator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis自动生成实体类.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mysql-connector-java-5.1.21.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/chat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.NorthKingSys.jbf.cn.NorthKingSysApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.NorthKingSys.jbf.cn.NorthKingSysApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/NorthKingSys/jbf/cn/NorthKingSysApplicationTests.class" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +59,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response237.json" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response14.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -58,6 +98,147 @@
       <recent name="H:\NorthKingSys\NorthKingSys\src\main\resources" />
     </key>
   </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="4DAC5C3D62F53D62E628AD85D596A8AC" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8081" />
+          <option name="urlPath" value="api/NothKingSystem/roleMngMenu/queryRoleMngMenuInfo" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{    &quot;ROLE_ID&quot;: &quot;JBF_8044291989504&quot;,   &quot;ROLE_NAME&quot;:&quot;运营管理员&quot;,    &quot;BACK_UP&quot;:&quot;调试&quot;,    &quot;FEIGN_IDS&quot;:&quot;M_919679488,M_919679489,M_919679490&quot; }" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="2F90CBAB27F4FE2393C00EE7BC8EC940" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8081" />
+          <option name="urlPath" value="api/NothKingSystem/roleMngMenu/queryRoleMngMenuInfo" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{    &quot;ROLE_ID&quot;: &quot;JBF_8044291989504&quot;,   &quot;ROLE_NAME&quot;:&quot;运营管理员&quot;,    &quot;BACK_UP&quot;:&quot;调试&quot;,    &quot;FEIGN_IDS&quot;:&quot;M_919679488,M_919679489,M_919679490&quot; }" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="2F90CBAB27F4FE2393C00EE7BC8EC940" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8081" />
+          <option name="urlPath" value="api/NothKingSystem/roleMngMenu/modifyRoleMngMeNuInfo" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{    &quot;ROLE_ID&quot;: &quot;JBF_8044291989504&quot;,   &quot;ROLE_NAME&quot;:&quot;运营管理员&quot;,    &quot;BACK_UP&quot;:&quot;调试&quot;,    &quot;FEIGN_IDS&quot;:&quot;M_919679488,M_919679489,M_919679490&quot; }" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/" />
+                <option name="value" value="2F90CBAB27F4FE2393C00EE7BC8EC940" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8081" />
+          <option name="urlPath" value="api/NothKingSystem/roleMngMenu/queryRoleMngMenuInfo" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8081" />
+          <option name="urlPath" value="api/NothKingSystem/roleMngMenu/queryRoleMngMenuInfo" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -92,11 +273,38 @@
       <workItem from="1598870847016" duration="7216000" />
       <workItem from="1598878556825" duration="9167000" />
       <workItem from="1598915361069" duration="628000" />
+      <workItem from="1599037373959" duration="2534000" />
     </task>
+    <task id="LOCAL-00001" summary="log">
+      <created>1599037437202</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599037437202</updated>
+    </task>
+    <task id="LOCAL-00002" summary="log">
+      <created>1599037462272</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599037462273</updated>
+    </task>
+    <task id="LOCAL-00003" summary="log">
+      <created>1599038023828</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599038023828</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="log" />
+    <option name="LAST_COMMIT_MESSAGE" value="log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -40,7 +40,7 @@ public class RoleMngMeNuService {
    }
 
     public Object modifyRoleMngMeNuInfo(Map re){
-        String role_id =String.valueOf(re.get("role_id"));
+        String role_id =String.valueOf(re.get("ROLE_ID"));
         String role_name = String.valueOf(re.get("ROLE_NAME"));
         String back_up = String.valueOf(re.get("BACK_UP"));
         String feign_ids = String.valueOf(re.get("FEIGN_IDS"));//menuIds 用逗号分隔

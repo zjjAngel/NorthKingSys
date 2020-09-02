@@ -47,6 +47,17 @@ public class RoleMngMeNuController {
     public Result<?> modifyRoleMngMeNuInfo(@RequestBody Map re){
         return ResultUtil.success(roleMngMeNuService.modifyRoleMngMeNuInfo(re));
     }
+
+    /**
+     *
+     * @param role_id
+     * @return
+     */
+//    @GetMapping("/deleteRoleById")
+//    public Result<?> deleteMenu(@RequestParam("role_Id")String role_id){
+//
+//    }
+
 //    /**
 //     * 角色编辑查询接口
 //     * menuIds 已经分配的menuIds

@@ -18,6 +18,6 @@ public interface RoleMngMeNuMapper {
     List<RoleInfo> queryRoleMngMenuInfo(@Param("roleName")String roleName);
     List<RoleInfo> queryRoleEditMenuInfo(@Param("role_id")String role_id);
 //     List<MenuInfo>   queryAllMenu();
-    List<RoleInfo> modifyRoleMngMeNuInfo(@Param("role_id")String role_id,@Param("roleName")String role_name,
+    int modifyRoleMngMeNuInfo(@Param("role_id")String role_id,@Param("roleName")String role_name,
                                          @Param("back_up")String back_up, @Param("feign_ids")String feign_ids);
 }
