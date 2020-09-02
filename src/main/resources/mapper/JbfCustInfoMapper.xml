@@ -23,7 +23,7 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from JBF_CUST_INFO
-    where ID = #{id,jdbcType=INTEGER}
+    where CUST_NO = #{custNo,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.NorthKingSys.jbf.cn.domain.JbfCustInfo">
     insert into JBF_CUST_INFO (ID, CUST_NO, CUST_NAME, 
@@ -124,7 +124,7 @@
         RELATE_MOBIL_NO = #{relateMobilNo,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{id,jdbcType=INTEGER}
+    where CUST_NO = #{custNo,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.NorthKingSys.jbf.cn.domain.JbfCustInfo">
     update JBF_CUST_INFO
@@ -136,26 +136,32 @@
       REGION = #{region,jdbcType=VARCHAR},
       RELATION_NAME = #{relationName,jdbcType=VARCHAR},
       RELATE_MOBIL_NO = #{relateMobilNo,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=INTEGER}
+    where CUST_NO = #{custNo,jdbcType=VARCHAR}
   </update>
   <!--add by zhujxd 20200902 新增客户信息查询-->
-  <select id="selectByClientInfo" parameterType="com.NorthKingSys.jbf.cn.domain.JbfCustInfo" resultMap="com.NorthKingSys.jbf.cn.domain.JbfCustInfo">
+  <select id="selectByClientInfo" parameterType="com.NorthKingSys.jbf.cn.domain.JbfCustInfo" resultType="com.NorthKingSys.jbf.cn.domain.JbfCustInfo">
     select
     <include refid="Base_Column_List" />
     from JBF_CUST_INFO
     where 1=1
-    <if test="custName != null">
-      CUST_NAME = #{custName,jdbcType=VARCHAR},
+    <if test="custName != null and custName != ''">
+      and  CUST_NAME = #{custName,jdbcType=VARCHAR}
     </if>
-    <if test="company != null">
-      COMPANY = #{company,jdbcType=VARCHAR},
+    <if test="company != null and company != ''">
+      and COMPANY = #{company,jdbcType=VARCHAR}
     </if>
-    <if test="relationName != null">
-      RELATION_NAME = #{relationName,jdbcType=VARCHAR},
+    <if test="relationName != null and relationName !=''">
+    and  RELATION_NAME = #{relationName,jdbcType=VARCHAR}
     </if>
-    <if test="region != null">
-      REGION = #{region,jdbcType=VARCHAR},
+    <if test="region != null and region !=''">
+      and REGION = #{region,jdbcType=VARCHAR}
     </if>
   </select>
+
+  <select id="getMaxCustNo" parameterType="java.lang.String" resultType="java.lang.String">
+    SELECT a.CUST_NO from JBF_CUST_INFO a where a.ID in (select MAX(ID) from JBF_CUST_INFO)
+  </select>
+
+
 
 </mapper>
